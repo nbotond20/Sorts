@@ -1,6 +1,7 @@
 #include <iostream>
 #include <time.h>
 #include <vector>
+#include <algorithm>
 #include "BubbleSort.h"
 
 using namespace std;
@@ -77,7 +78,8 @@ void BSort()
 			break;
 		case 3:
 			type = 0;
-            compare_count=0;
+            compare_count = 0;
+            swap_count = 0;
             bubbleSort(A, n);
             cout<<"Sorted list: ";				   
 			for(int i=0; i<n; i++)					   
@@ -93,7 +95,8 @@ void BSort()
 			break;
 		case 4:
             type = 1;
-            compare_count=0;
+            compare_count = 0;
+            swap_count = 0;
             bubbleSort(A, n);
 			cout<<"Sorted list: ";				   
 			for(int i=0; i<n; i++)					   

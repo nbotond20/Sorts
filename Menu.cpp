@@ -8,7 +8,7 @@
 #include "SelectionSort.h"
 
 void Menu::run(){
-    static int input;
+    int input;
     do{
         std::cout << std::endl;
 		std::cout << "-------------------Menu-------------------"<<std::endl;

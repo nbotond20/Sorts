@@ -1,6 +1,7 @@
 #include <iostream>
 #include <time.h>
 #include <vector>
+#include <algorithm>
 #include "QuickSort.h"
 
 using namespace std;
@@ -8,9 +9,13 @@ using namespace std;
 static int counter = 0;
 static int pivot_type=0;
 static int info_type=0;
+static bool srand_called = false;
 
 int partition(vector<int> &A, int p, int r){
-	srand(time(NULL));
+	if (!srand_called) {
+        srand(time(NULL));
+        srand_called = true;
+    }
 	counter++;
 	int i;
 	switch(pivot_type){
@@ -21,7 +26,7 @@ int partition(vector<int> &A, int p, int r){
 			i = (p+r)/2;
 			break;
 		case 2:
-			i = (rand() % r) + p;
+			i = p + (rand() % (r - p + 1));
 			break;
 	}
 	int  x= A[i];
@@ -149,8 +154,8 @@ void QSort()
 			break;
 		case 4:
 			info_type = 0;
+            counter = 0;
 			quickSort(A,0,n-1);
-			counter=0;
 			cout<<"Sorted list: ";				   
 			for(int i=0; i<n; i++)					   
 			{										   
@@ -162,9 +167,9 @@ void QSort()
 			cout << endl;
 			break;
 		case 5:
-			info_type=1;
+			info_type = 1;
+            counter = 0;
 			quickSort(A,0,n-1);
-			counter=0;
 			cout<<"Sorted list: ";				   
 			for(int i=0; i<n; i++)					   
 			{										   

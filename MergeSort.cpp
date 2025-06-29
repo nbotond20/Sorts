@@ -98,6 +98,7 @@ void MSort()
 			break;
 		case 3:
 			type = 0;
+            compare_count = 0;
             mergeSort(A, n);
             cout<<"Sorted list: ";				   
 			for(int i=0; i<n; i++)					   
@@ -112,6 +113,7 @@ void MSort()
 			break;
 		case 4:
             type = 1;
+            compare_count = 0;
             mergeSort(A, n);
 			cout<<"Sorted list: ";				   
 			for(int i=0; i<n; i++)					   
